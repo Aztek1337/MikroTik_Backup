@@ -12,7 +12,7 @@ USER="backup_agent"
 for router in $routers
 do
 # name can be set to anything, make sure to update backup file name on line 15 on Router_backup_Pull.sh script
-#password should be changes to desired password
+#password should be changed to desired password
 router_command="/system backup save name=$router encryption=aes-sha256 password=PASSWORD"
 
 
