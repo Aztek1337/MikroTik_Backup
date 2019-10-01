@@ -15,7 +15,7 @@ do
 bfn="$router.backup"
 router_command="get $bfn /PATH TO BACKUP" # <--- file path is on client server 
 
-# Connects to router via ssh then runs command and then appends any errors to results.txt
+# Connects to router via ssh then runs command
 sftp -P 22 $USER"@"$router <<EOF
 $router_command
 exit
