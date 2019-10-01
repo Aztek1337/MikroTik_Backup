@@ -1,0 +1,15 @@
+ MikoTik script to delete backs ups created on MikroTik
+
+Created with Winbox-  System>Scheduler
+
+1. Name = Desired Name
+2. Start Date = Desired Start Date
+3. Start Time = Desired Start Time
+4. Interval = Desired Interval
+
+On Event:
+$BACKUP using default config is named the variable $Router (IP or FQDN)
+Replace $BACKUP with correct name
+COPY BELOW THIS LINE
+-------------------------------
+/file remove '$BACKUP'

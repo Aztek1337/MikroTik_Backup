@@ -1,23 +1,26 @@
 #!/usr/bin 
+#Should be ran after Router_Backup_Config.sh
+# Will login into MikoTik and pull backup file that is created and store it on location specified
 
 # Update routers.txt with routers IP address or FQDN
 routers="192.168.1.1"
 
-#username SSH key is stored on MikroTik
+#username is on Mikrotik, Server's Public  SSH key is stored on MikroTik
 USER="backup_agent"
 
-# Runs $router_command on routers from routers.txt
+# Runs $router_command on routers
 for router in $routers
 do
 #bfn=backup file name
-bfn="aa_$router.backup"
-router_command="get $bfn /fs/backups"
+bfn="$router.backup"
+router_command="get $bfn /PATH TO BACKUP" # <--- file path is on client server 
 
 # Connects to router via ssh then runs command and then appends any errors to results.txt
-sftp -P 2222 $USER"@"$router <<EOF
+sftp -P 22 $USER"@"$router <<EOF
 $router_command
 exit
 EOF
 done
 
- mv "/fs/backups/aa_$router.backup" "/fs/backups/router_backups/aa_$router-$(date +%m%d%y).backup"
+# Renames backup file to add date stamp
+ mv "/PATH TO BACKUP/$router.backup" "/PATH TO BACKUP/$router-$(date +%m%d%y).backup"
