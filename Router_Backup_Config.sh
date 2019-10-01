@@ -4,7 +4,7 @@
 # Update a txt file such as routers.txt with routers IP address or FQDN. Or you can just manually add one IP or FQDN.
 routers="192.168.1.1"
 
-#Default config of "backup_agent" is not a default user on MikroTik, this user was created ont he MikroTik
+#Default config of "backup_agent" is not a default user on MikroTik, this user was created on the MikroTik
 #Please feel free to create a user with another name
 USER="backup_agent"
 
